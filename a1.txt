@@ -1,3 +1,7 @@
 mi primer archivo en git
 
 creada rama tar1
+
+segunda modificacion
+
+creada rama tar2
