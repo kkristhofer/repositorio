@@ -1,0 +1,79 @@
+git branch para saber donde estamos
+
+git status para saber en que estado estamos
+
+git pull origin siempre para actualizar el repositorio
+
+las tareas nuevas se inician en una rama nueva --> git switch -c tar1 *** tar1 es un nombre de ejemplo ***
+
+git branch para verificar que está creada
+
+-- > empezamos a trabajar
+
+modificamos un archivo ***todo dentro del repositorio en el sistema***
+
+si hacemos un git status nos mostrará los archivos modificados ***siempre hacer git add si creamos un archivo nuevo***
+
+hacemos un git diff si queremos ver las modificaciones que hemos hecho respecto al estado anterior del archivo
+
+git restore si queremos revertir las modificaciones hechas
+
+git add para añadir los archivos nuevos ***si queremos hacer add a todos los archivos git add .***
+
+si queremos sacar los archivos del area de staged utilizar git restore --staged
+
+hacemos el git commit -m 'insertar mensaje aquí' para hacer el commit
+
+--- > ahora el árbol de trabajo está limpio
+
+si nosotros quisiéramos deshacer el commit sin perder los cambios haríamos un git reset --soft HEAD^
+
+ahora ejecutando ese comando los archivos volverian a la zona de staged
+
+*** haciendo un git reset --hard HEAD^, eso tambien revertiria el commit pero perdiendo los cambios***
+
+--- > si queremos añadir algo al commit (por ej. si se nos olvido una linea de comentario)
+
+modificamos normalmente, hacemos el add, hariamos un git log para ver el commit que queriamos modificar o agregarle este cambio, y hacemos un git commit --amend
+
+--- > ahora queremos subir al github los cambios que hicimos en la rama
+
+git push origin tar1 <- tar1 es un nombre de ejemplo
+
+--- > ahora, fusionamos con main
+
+git pull origin main <- actualizamos nuestra rama local con el repositorio en caso de algun cambio que se haya hecho
+
+git switch main <- cambiamos a la rama main
+
+git pull origin main <- volvemos a actualizar
+
+ahora fusionamos la rama tar1 con main : git merge tar1
+
+subimos ahora nuestro main al repositorio con un git push origin main
+
+--> hacemos un git branch para borrar la rama local
+
+git branch -r ***en caso que no aparezca la rama remota hacemos un git fetch --prune***
+
+borramos la rama local con un git branch -D tar1
+
+ahora borramos la rama remota git push origin --delete tar1
+
+--> si hacemos un git branch veremos que esta borrada
+
+--> ahora, digamos que queremos revertir el commit ***ej, una funcionalidad no funciona***
+
+hacemos un git log -1 ***el -1 en caso que sepamos que es el ultimo commit el que hay que revertir***
+
+hacemos un git revert con el numero que nos sale en el log
+
+si hacemos un git status
+
+hacemos un git pull origin main para actualizar
+
+ahora hacemos un git push origin main para publicar los commits locales
+
+y si hacemos un git status comprobamos que la rama esta actualizada
+
+
